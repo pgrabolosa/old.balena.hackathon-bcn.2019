@@ -15,8 +15,10 @@ def message(text):
    red = (255, 0, 0)
    sense.show_message(text, text_colour=red)
 
+currentMessageAsync=None
 def messageAsync(text):
-   Thread(target=lambda self, *args: message(text), args=()).run()
+   currentMessageAsync = Thread(target=lambda self, *args: message(text), args=())
+   currentMessageAsync.run()
    
 
 @app.route('/')
@@ -30,7 +32,7 @@ def banner():
    except:
       text = "Unicorn!"
 
-   message(text)
+   messageAsync(text)
    return text
 
 if __name__ == '__main__':
