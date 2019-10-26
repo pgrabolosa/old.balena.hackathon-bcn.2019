@@ -35,7 +35,7 @@ services:
   mosquitto:
     build: mosquitto
     hostname: mqtt
-    ports:
+    expose:
       - "1883"
     
   telegraf:
