@@ -1,10 +1,10 @@
-version: '2'
+version: '3'
 services:
   sensehat:
-   build: ./sensehat
-   image: sensehat:base
-   privileged: true
-   restart: never
+   build: 
+    context: ./sensehat
+    target: sensehat
+    restart: never
 
   display:
     build: ./display
@@ -14,8 +14,8 @@ services:
 
   joystick:
     build:
-      depends_on: sensehat
       context: ./joystick
+      cache-from: sensehat
     privileged: true
     restart: always
 
