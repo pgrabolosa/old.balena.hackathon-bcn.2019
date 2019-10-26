@@ -34,7 +34,6 @@ services:
       
   mosquitto:
     build: mosquitto
-    hostname: mqtt
     expose:
       - "1883"
     

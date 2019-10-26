@@ -7,7 +7,7 @@ app = Flask(__name__)
 sense = SenseHat()
 try:
    print("MQTT - Trying to connect")
-   mqtt = MqttClient('mqtt')
+   mqtt = MqttClient('mosquitto')
 except:
    print("MQTT - Failed to connect")
    mqtt = None
