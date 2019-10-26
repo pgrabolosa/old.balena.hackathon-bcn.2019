@@ -20,10 +20,13 @@ def on_message(client, userdata, msg):
       switchapp(str(msg.payload.decode("utf-8","ignore")))
 
 def switchapp(direction):
+   global currentApp
+   oldApp = currentApp
    if direction in ['up', 'right']:
       currentApp = 0 if currentApp is None else ((currentApp+1)%len(knownApps))
    elif direction in ['down', 'left']:
       currentApp = 0 if currentApp is None else ((currentApp-1+len(knownApps))%len(knownApps))
+   print("Switched apps from", oldApp, "to", currentApp)
 
 def display(msg):
    senderName = msg.topic[len('disp/'):]

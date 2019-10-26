@@ -19,3 +19,10 @@ services:
     restart: always
     depends_on:
        - mosquitto
+
+  temperature:
+    build: ./temperature
+    privileged: true
+    restart: always
+    depends_on:
+       - mosquitto
