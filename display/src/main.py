@@ -27,10 +27,14 @@ def switchapp(direction):
 
 def display(msg):
    senderName = msg.topic[len('disp/'):]
+   print("Received display message from", senderName)
+   
    if senderName not in knownApps:
       knownApps.append(senderName)
+      print("Updated known apps to", knownApps)
    
    if currentApp is not None and senderName != knownApps[currentApp]:
+      print("Ignoring call from", senderName)
       return #ignore call
    
    try:

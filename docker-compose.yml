@@ -8,17 +8,18 @@ services:
 #      - "5000:5000" 
   display:
     build: ./display
-    image: display
+    image: pgrabolosa/balena_test_display:latest
     privileged: true
     restart: always
 
   joystick:
     build: ./joystick
+    image: pgrabolosa/balena_test_joystick:latest
     privileged: true
     restart: always
 
   mosquitto:
-    build: mosquitto
+    build: ./mosquitto
     restart: always
     expose:
       - "1883"
