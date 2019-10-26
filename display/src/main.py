@@ -1,0 +1,34 @@
+import paho.mqtt.client as mqtt
+import json
+from sense import messageAsync
+
+# The callback for when the client receives a CONNACK response from the server.
+def on_connect(client, userdata, flags, rc):
+    print("MQTT - Connected with result code "+str(rc))
+    print("MQTT - Will subscribe to "+str(rc))
+    client.subscribe("disp/#")
+
+# The callback for when a PUBLISH message is received from the server.
+def on_message(client, userdata, msg):
+   #msgDecoded=str(msg.payload.decode("utf-8","ignore"))
+   #json.loads(msgDecoded)
+   print("Received message")
+   messageAsync("Received message")
+
+def should_display(disp_msg):
+   messageAsync("Should Display")
+   
+def should_process(raw_msg):
+   messageAsync("Should Process")
+
+class MqttClient:
+   def __init__(self, servername):
+      self.client = mqtt.Client()
+      self.client.on_connect = on_connect
+      self.client.on_message = on_message
+
+      self.client.connect(servername, 1883, 60)
+   
+   def start(self):
+      print("MQTT - Starting mqtt loop")
+      self.client.loop_forever()

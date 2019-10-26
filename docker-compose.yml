@@ -3,11 +3,16 @@ volumes:
     sense-data:
 services:
   sensorhat:
+    image: sensorhat
     build: ./sensehat
     privileged: true
     restart: always
     ports:
-      - "5000:5000"      
+      - "5000:5000" 
+  display:
+    build: ./display
+    privileged: true
+    restart: always
   mosquitto:
     build: mosquitto
     expose:
