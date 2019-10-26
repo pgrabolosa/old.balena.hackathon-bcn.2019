@@ -25,11 +25,8 @@ services:
     volumes:
       - 'sense-data:/data'
   mosquitto:
-    image: eclipse-mosquitto
+    build: mosquitto
     hostname: mqtt
-    privileged: true
-    volumes:
-      - './mosquitto/:/mosquitto/config/'
   telegraf:
     build: ./telegraf
     restart: always
