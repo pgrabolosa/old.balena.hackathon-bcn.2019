@@ -31,10 +31,10 @@ if __name__ == '__main__':
          if event.direction == "middle":
             mqtt.client.publish("disp/button", json.dumps({"image":
 [N, N, N, B, B, N, N, N,
-N, N, B, B, B, B, N, N,
 N, B, B, B, B, B, B, N,
+B, B, B, B, B, B, B, B,
 O, O, B, B, B, B, Y, Y,
-O, O, O, B, B, Y, Y, Y,
+O, O, O, O, Y, Y, Y, Y,
+O, O, O, O, Y, Y, Y, Y,
 N, O, O, O, Y, Y, Y, N,
-N, N, O, O, Y, Y, N, N,
 N, N, N, O, Y, N, N, N]}))
