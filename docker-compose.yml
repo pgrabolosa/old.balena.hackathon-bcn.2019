@@ -8,8 +8,17 @@ services:
 #      - "5000:5000" 
   display:
     build: ./display
+    image: display
     privileged: true
     restart: always
+   
+  display2:
+    image: display
+    depends_on: 
+       - display
+    privileged: true
+    restart: always
+
 
   joystick:
     build: ./joystick
