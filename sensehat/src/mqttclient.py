@@ -19,4 +19,5 @@ class MqttClient:
       self.client.connect(servername, 1883, 60)
    
    def start(self):
+      print("Starting mqtt loop")
       self.client.loop_start()

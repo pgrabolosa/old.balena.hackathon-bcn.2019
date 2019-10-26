@@ -18,7 +18,7 @@ def message(text):
 currentMessageAsync=None
 def messageAsync(text):
    currentMessageAsync = Thread(target=lambda *args: message(text), args=())
-   currentMessageAsync.run()
+   currentMessageAsync.start()
    
 
 @app.route('/')
