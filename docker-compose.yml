@@ -13,15 +13,7 @@ services:
     restart: always
    
   display2:
-    image: display
-    depends_on: 
-       - display
-    privileged: true
-    restart: always
-  display3:
-    image: display
-    depends_on: 
-       - display
+    build: ./display2
     privileged: true
     restart: always
 
