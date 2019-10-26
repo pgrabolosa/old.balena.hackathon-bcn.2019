@@ -19,4 +19,5 @@ if __name__ == '__main__':
    while True:
       event = sense.wait_for_event()
       if action == "pressed":
+         print("Event " + event.direction)
          mqtt.client.publish(TOPIC, event.direction)
