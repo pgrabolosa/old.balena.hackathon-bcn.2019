@@ -34,14 +34,11 @@ def should_display(disp_msg):
 def should_process(raw_msg):
    messageAsync("Should Process")
 
-class MqttClient:
-   def __init__(self, servername):
-      self.client = mqtt.Client()
-      self.client.on_connect = on_connect
-      self.client.on_message = on_message
 
-      self.client.connect(servername, 1883, 60)
-   
-   def start(self):
-      print("MQTT - Starting mqtt loop")
+if __name__ == '__main__':
+      client = mqtt.Client()
+      client.on_connect = on_connect
+      client.on_message = on_message
+
+      client.connect('mosquitto', 1883, 60)
       self.client.loop_forever()
