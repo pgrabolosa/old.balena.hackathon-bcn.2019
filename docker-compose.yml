@@ -12,8 +12,8 @@ services:
     privileged: true
     restart: always
    
-  display2:
-    build: ./display2
+  display3:
+    build: ./display3
     privileged: true
     restart: always
 
