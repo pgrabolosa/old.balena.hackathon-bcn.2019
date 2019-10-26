@@ -1,8 +1,11 @@
 from flask import Flask, request
 from sense_hat import SenseHat
+from mqttclient import MqttClient
 
 app = Flask(__name__)
 sense = SenseHat()
+mqtt = MqttClient()
+
 
 def message(text):
    sense.set_rotation(180)
@@ -25,4 +28,5 @@ def banner():
    return text
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+   mqtt.start()
+   app.run(host='0.0.0.0', port=5000)
