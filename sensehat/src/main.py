@@ -17,7 +17,7 @@ def message(text):
 
 currentMessageAsync=None
 def messageAsync(text):
-   currentMessageAsync = Thread(target=lambda self, *args: message(text), args=())
+   currentMessageAsync = Thread(target=lambda *args: message(text), args=())
    currentMessageAsync.run()
    
 
