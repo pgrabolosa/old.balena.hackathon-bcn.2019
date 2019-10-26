@@ -1,18 +1,18 @@
 version: '2'
-volumes:
-    sense-data:
 services:
-  sensorhat:
-    build: ./sensehat
-    privileged: true
-    restart: always
-    ports:
-      - "5000:5000" 
   display:
     build: ./display
     privileged: true
     restart: always
+      - "5000:5000"
+
+  joystick:
+    build: ./joystick
+    privileged: true
+    restart: always
+
   mosquitto:
     build: mosquitto
+    restart: always
     expose:
       - "1883"
