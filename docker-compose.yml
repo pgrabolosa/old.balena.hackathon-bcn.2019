@@ -2,9 +2,17 @@ version: '2'
 services:
   display:
     build: ./display
+    image: display
     privileged: true
     restart: always
-      - "5000:5000"
+   
+  display2:
+    image: display
+    depends_on: 
+       - display
+    privileged: true
+    restart: always
+
 
   joystick:
     build: ./joystick
