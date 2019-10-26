@@ -29,7 +29,7 @@ services:
     image: eclipse-mosquitto
     hostname: mqtt
     volumes:
-      - './mosquitto:/mosquitto/config'
+      - './mosquitto/:/mosquitto/config/'
       
   telegraf:
     build: ./telegraf
