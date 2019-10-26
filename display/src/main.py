@@ -41,4 +41,4 @@ if __name__ == '__main__':
       client.on_message = on_message
 
       client.connect('mosquitto', 1883, 60)
-      self.client.loop_forever()
+      client.loop_forever()
