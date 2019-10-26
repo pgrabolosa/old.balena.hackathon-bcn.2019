@@ -1,11 +1,5 @@
 version: '2'
 services:
-  sensehat:
-   build: 
-    context: ./sensehat
-    target: sensehat
-    restart: never
-
   display:
     build: ./display
     privileged: true
@@ -13,9 +7,7 @@ services:
       - "5000:5000"
 
   joystick:
-    build:
-      context: ./joystick
-      cache-from: sensehat
+    build: ./joystick
     privileged: true
     restart: always
 

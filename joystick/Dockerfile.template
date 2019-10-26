@@ -1,4 +1,4 @@
-FROM sensehat:base
+FROM localhost:5000/sensorbase
 
 WORKDIR /usr/src/app
 
