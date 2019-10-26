@@ -2,8 +2,8 @@ import paho.mqtt.client as mqtt
 
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, flags, rc):
-    print("Connected with result code "+str(rc))
-    print("Will subscribe to "+str(rc))
+    print("MQTT - Connected with result code "+str(rc))
+    print("MQTT - Will subscribe to "+str(rc))
     client.subscribe("#")
 
 # The callback for when a PUBLISH message is received from the server.
@@ -19,5 +19,5 @@ class MqttClient:
       self.client.connect(servername, 1883, 60)
    
    def start(self):
-      print("Starting mqtt loop")
+      print("MQTT - Starting mqtt loop")
       self.client.loop_start()

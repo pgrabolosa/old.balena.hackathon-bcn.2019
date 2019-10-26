@@ -6,8 +6,10 @@ from mqttclient import MqttClient
 app = Flask(__name__)
 sense = SenseHat()
 try:
+   print("Trying to connect")
    mqtt = MqttClient('mqtt')
 except:
+   print("Failed to connect")
    mqtt = None
 
 def message(text):
