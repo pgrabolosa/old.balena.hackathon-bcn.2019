@@ -1,6 +1,5 @@
 FROM 10.10.169.94:5000/sensorbase:latest
 
-# Set our working directory
 WORKDIR /usr/src/app
 
 # This will copy all files in our root to the working  directory in the container
