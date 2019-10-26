@@ -25,7 +25,7 @@ if __name__ == '__main__':
    
    while True:
       event = sense.stick.wait_for_event()
-      if event.action == "pressed":
+      if mqtt is not None and event.action == "pressed":
          print("Event " + event.direction)
          mqtt.client.publish(TOPIC, event.direction)
          if event.direction == "middle":

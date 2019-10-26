@@ -1,12 +1,9 @@
-FROM localhost:5000/sensorbase
+FROM 10.10.169.94:5000/sensorbase:latest
 
 WORKDIR /usr/src/app
 
 # This will copy all files in our root to the working  directory in the container
 COPY . ./
-
-# Enable udevd so that plugged dynamic hardware devices show up in our container.
-ENV UDEV=1
 
 # main.py will run when container starts up on the device
 CMD ["python","-u","src/main.py"]

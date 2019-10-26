@@ -1,18 +1,28 @@
 version: '2'
-services:
+services: 
+  mosquitto:
+    build: ./mosquitto
+    restart: always
+    expose:
+      - "1883"
+      
   display:
     build: ./display
-    image: display
     privileged: true
     restart: always
+    depends_on:
+       - mosquitto
 
   joystick:
     build: ./joystick
     privileged: true
     restart: always
+    depends_on:
+       - mosquitto
 
-  mosquitto:
-    build: mosquitto
+  temperature:
+    build: ./temperature
+    privileged: true
     restart: always
-    expose:
-      - "1883"
+    depends_on:
+       - mosquitto
