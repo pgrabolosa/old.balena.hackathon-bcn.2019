@@ -2,41 +2,17 @@ version: '2'
 volumes:
     sense-data:
 services:
-  influxdb:
-    restart: always
-    build: ./influxdb
-    volumes:
-      - 'sense-data:/data'
-  grafana:
-    restart: always
-    build: ./grafana
-    ports:
-      - "80"
-    volumes:
-      - 'sense-data:/data'
-    environment:
-        - 'GF_SERVER_HTTP_PORT=80'
-        - 'GF_PATHS_PROVISIONING=/usr/src/app/provisioning'
-        - 'GF_SESSION_PROVIDER=memory'
-  sensor:
-    build: ./sensor
-    privileged: true
-    restart: always
-    volumes:
-      - 'sense-data:/data'
-      
   sensorhat:
     build: ./sensehat
     privileged: true
     restart: always
     ports:
-      - "5000:5000"
-      
+      - "5000:5000" 
+  display:
+    build: ./display
+    privileged: true
+    restart: always
   mosquitto:
     build: mosquitto
     expose:
       - "1883"
-    
-  telegraf:
-    build: ./telegraf
-    restart: always

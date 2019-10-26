@@ -1,27 +1,14 @@
-from threading import Thread
 from flask import Flask, request
-from sense_hat import SenseHat
 from mqttclient import MqttClient
+from sense import messageAsync
 
 app = Flask(__name__)
-sense = SenseHat()
 try:
    print("MQTT - Trying to connect")
    mqtt = MqttClient('mosquitto')
 except:
    print("MQTT - Failed to connect")
    mqtt = None
-
-def message(text):
-   sense.set_rotation(180)
-   red = (255, 0, 0)
-   sense.show_message(text, text_colour=red)
-
-currentMessageAsync=None
-def messageAsync(text):
-   currentMessageAsync = Thread(target=lambda *args: message(text), args=())
-   currentMessageAsync.start()
-   
 
 @app.route('/')
 def hello_world():
