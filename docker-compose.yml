@@ -35,6 +35,8 @@ services:
   mosquitto:
     build: mosquitto
     hostname: mqtt
+    ports:
+      - "1883"
     
   telegraf:
     build: ./telegraf

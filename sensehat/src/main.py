@@ -6,10 +6,10 @@ from mqttclient import MqttClient
 app = Flask(__name__)
 sense = SenseHat()
 try:
-   print("Trying to connect")
+   print("MQTT - Trying to connect")
    mqtt = MqttClient('mqtt')
 except:
-   print("Failed to connect")
+   print("MQTT - Failed to connect")
    mqtt = None
 
 def message(text):
@@ -40,5 +40,4 @@ def banner():
 if __name__ == '__main__':
    if mqtt:
       mqtt.start()
-   print("Hello")
    app.run(host='0.0.0.0', port=5000)
