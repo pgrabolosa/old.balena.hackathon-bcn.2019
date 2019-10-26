@@ -1,11 +1,11 @@
 version: '2'
 services:
-#  sensorhat:
-#    build: ./sensehat
-#    privileged: true
-#    restart: always
-#    ports:
-#      - "5000:5000" 
+  sensorhat:
+   build: ./sensehat
+   image: sensehat:base
+   privileged: true
+   restart: never
+
   display:
     build: ./display
     privileged: true
@@ -16,6 +16,8 @@ services:
     build: ./joystick
     privileged: true
     restart: always
+    depends_on:
+      - sensehat
 
   mosquitto:
     build: mosquitto
