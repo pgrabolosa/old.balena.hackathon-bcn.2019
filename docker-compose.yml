@@ -1,6 +1,6 @@
 version: '2'
 services:
-  sensorhat:
+  sensehat:
    build: ./sensehat
    image: sensehat:base
    privileged: true
