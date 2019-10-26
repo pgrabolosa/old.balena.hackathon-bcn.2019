@@ -16,7 +16,8 @@ def message(text):
    sense.show_message(text, text_colour=red)
 
 def messageAsync(text):
-   Thread(target=message, args=(text)).run()
+   Thread(target=lambda self, t, *args: message(t), args=(text)).run()
+   
 
 @app.route('/')
 def hello_world():
