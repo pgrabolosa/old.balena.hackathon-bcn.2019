@@ -20,7 +20,7 @@ if __name__ == '__main__':
       mqtt.start()
    
    while True:
-      sleep(10)
+      sleep(15)
       if mqtt is not None:
          mqtt.client.publish(RAW_TOPIC, json.dumps({
             "humidity": sense.get_humidity(),
@@ -28,5 +28,5 @@ if __name__ == '__main__':
             "pressure": sense.get_pressure()
          }))
          mqtt.client.publish(DISP_TOPIC, json.dumps({
-            "text": "TEMP %d" % (int(sense.get_temperature()))
+            "text": "T%d" % (int(sense.get_temperature()))
          }))
