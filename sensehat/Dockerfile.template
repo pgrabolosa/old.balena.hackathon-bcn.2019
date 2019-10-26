@@ -1,6 +1,5 @@
 FROM balenalib/%%BALENA_MACHINE_NAME%%-python:3-build
 
-
 # Set our working directory
 WORKDIR /usr/src/app
 

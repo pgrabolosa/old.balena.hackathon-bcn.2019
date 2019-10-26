@@ -3,7 +3,6 @@ volumes:
     sense-data:
 services:
   sensorhat:
-    image: sensorhat
     build: ./sensehat
     privileged: true
     restart: always
