@@ -28,6 +28,7 @@ services:
   mosquitto:
     image: eclipse-mosquitto
     hostname: mqtt
+    privileged: true
     volumes:
       - './mosquitto/:/mosquitto/config/'
       
