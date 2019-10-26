@@ -1,4 +1,3 @@
-from threading import Thread
 from flask import Flask, request
 from mqttclient import MqttClient
 from sense import messageAsync

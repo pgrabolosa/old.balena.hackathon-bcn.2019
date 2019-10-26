@@ -1,3 +1,4 @@
+from threading import Thread
 from sense_hat import SenseHat
 sense = SenseHat()
 
