@@ -40,4 +40,5 @@ def banner():
 if __name__ == '__main__':
    if mqtt:
       mqtt.start()
+   print("Hello")
    app.run(host='0.0.0.0', port=5000)
