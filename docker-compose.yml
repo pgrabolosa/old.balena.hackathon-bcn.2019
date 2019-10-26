@@ -10,7 +10,6 @@ services:
     build: ./display
     privileged: true
     restart: always
-      - "5000:5000"
 
   joystick:
     build: ./joystick
