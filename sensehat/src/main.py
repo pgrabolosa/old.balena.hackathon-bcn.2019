@@ -5,7 +5,10 @@ from mqttclient import MqttClient
 
 app = Flask(__name__)
 sense = SenseHat()
-mqtt = MqttClient('mqtt')
+try:
+   mqtt = MqttClient('mqtt')
+except:
+   mqtt = None
 
 
 async def message(text):
