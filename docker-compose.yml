@@ -24,14 +24,12 @@ services:
     restart: always
     volumes:
       - 'sense-data:/data'
-
   mosquitto:
     image: eclipse-mosquitto
     hostname: mqtt
     privileged: true
     volumes:
       - './mosquitto/:/mosquitto/config/'
-      
   telegraf:
     build: ./telegraf
     restart: always
