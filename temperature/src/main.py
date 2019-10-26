@@ -28,5 +28,5 @@ if __name__ == '__main__':
             "pressure": sense.get_pressure()
          }))
          mqtt.client.publish(DISP_TOPIC, json.dumps({
-            "text": "TEMP %f" % (sense.get_temperature())
+            "text": "TEMP %d" % (int(sense.get_temperature()))
          }))
