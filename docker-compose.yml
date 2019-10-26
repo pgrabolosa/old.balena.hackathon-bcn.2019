@@ -18,7 +18,12 @@ services:
        - display
     privileged: true
     restart: always
-
+  display3:
+    image: display
+    depends_on: 
+       - display
+    privileged: true
+    restart: always
 
   joystick:
     build: ./joystick
