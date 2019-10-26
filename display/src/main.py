@@ -1,6 +1,6 @@
 import paho.mqtt.client as mqtt
 import json
-from sense import messageAsync
+from sense import messageAsync, sense
 
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, flags, rc):
@@ -10,10 +10,23 @@ def on_connect(client, userdata, flags, rc):
 
 # The callback for when a PUBLISH message is received from the server.
 def on_message(client, userdata, msg):
-   #msgDecoded=str(msg.payload.decode("utf-8","ignore"))
-   #json.loads(msgDecoded)
-   print("Received message")
-   messageAsync("Received message")
+   try:
+      msgDecoded=str(msg.payload.decode("utf-8","ignore"))
+      msgRoot = json.loads(msgDecoded)
+      if type(msgRoot) is not dict:
+         raise AttributeError("Not JSON")
+   except:
+      print("Bad format for topic disp/#")
+      return # ignore it
+   
+   if 'color' in msgRoot:
+      sense.clear(msgRoot['color'])
+   elif 'image' in msgRoot:
+      sense.set_pixels(msgRoot['image'])
+   elif 'text' in msgRoot:
+      messageAsync(msgRoot['text'])
+   else:
+      print("Unexpected format for topic disp/#")
 
 def should_display(disp_msg):
    messageAsync("Should Display")
