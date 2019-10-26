@@ -13,11 +13,11 @@ services:
       - "5000:5000"
 
   joystick:
-    build: ./joystick
+    build:
+      depends_on: sensehat
+      context: ./joystick
     privileged: true
     restart: always
-    depends_on:
-      - sensehat
 
   mosquitto:
     build: mosquitto
