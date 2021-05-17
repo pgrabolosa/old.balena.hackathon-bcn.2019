@@ -26,3 +26,12 @@ services:
     restart: always
     depends_on:
        - mosquitto
+
+  nodered:
+    build: ./nodered
+    privileged: true
+    restart: always
+    ports:
+       - 80:1880
+    depends_on:
+       - mosquitto

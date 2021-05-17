@@ -1,0 +1,15 @@
+FROM pgrabolosa/sensorbase:latest
+
+# Set our working directory
+WORKDIR /usr/src/app
+
+RUN bash -c "bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered) --confirm-root --confirm-install --confirm-pi"
+
+EXPOSE 1880
+
+ENV UDEV=1
+WORKDIR /app
+
+# main.py will run when container starts up on the device
+CMD ["node-red-pi", "--max-old-space-size=256"]
+

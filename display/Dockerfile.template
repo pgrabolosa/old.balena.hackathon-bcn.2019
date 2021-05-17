@@ -1,4 +1,4 @@
-FROM 10.10.169.94:5000/sensorbase:latest
+FROM pgrabolosa/sensorbase:latest
 
 WORKDIR /usr/src/app
 
